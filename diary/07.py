@@ -61,5 +61,10 @@ def clinic():
 clinic() #调用函数
 """
 
+"""
+from module import function # 导入方法，moudle,function
+"""
+
+
 
 
