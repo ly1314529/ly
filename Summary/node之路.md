@@ -39,5 +39,44 @@ console.log('app port is 3000'); //在监听成功后，会输出的东西
 
 在看参考资料是，发现了一个叫utility的包，是一个有用的工具集合，主要是依靠md5这个命令生成一些编码，保证数据的安全性
 
-* 
 
+* 网络爬虫
+  * 第一次接触这个词是在9个月前了，当时很疑惑，请教了别人，但别人也没讲董，事后也没有再认真研究，最近学node.js又遇到了，还是想逃避，足足一周没有去搞node，但今天又提起了，还是探索一番吧
+  * 网络爬虫指的就是以一定的规律抓取某一网页上的数据
+  * 在抓取页面的时候，需要用到
+    * [superagent](https://cnodejs.org/topic/5378720ed6e2d16149fa16bd)
+      * 一个非常方便的客户端请求代理模块，可以处理get,post,put,delete,head 
+    * [cheerio](https://cnodejs.org/topic/5203a71844e76d216a727d2e)
+      * 一个类似于jquery的api，将html告诉服务器，res是服务器将要返回的内容
+  * 源码
+    ```javascript
+    var express=require('express');
+    var superagent=require('superagent');
+    var cheerio=require('cheerio');  //依赖库调用
+    var app=express(); //创建express函数，方便调用express方法
+    app.get('/',function (req,res,file) {  //file是获取的内容
+    superagent.get('url');  //在url网页上抓取html
+    .end(function (err,sres) {   //sres是获取到的html
+    if (err) {   //报错的情况
+    return file(err) 
+     }
+    var $=cheerio.load(sres.text);  // sres.text 里面存储着网页的 html 内容，将它传给 cheerio.load 之后
+      //就可以得到一个实现了 jquery 接口的变量
+    var items=[];  //创建一个数组
+    $('需要查找的id,class').each(function (idx,element) {  //遍历id or class的元素
+    var $element=$(element);   //得到html中的元素
+    items.push({json格式}   //res将要展现的json, title : $element('href');
+    ); 
+    });
+    });
+    res.send(items);  //服务器响应将items发送到浏览器
+    });
+    });
+    app.end(3000,function (res,req) {
+    console.log('the port is 3000'); //监听端口3000
+    });
+    
+    
+    })
+    
+    
