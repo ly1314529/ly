@@ -35,3 +35,7 @@ ReactDOM.render(
   img,  //执行的行为
   document.getElementById('app')
 );
+
+* 组件
+var newclass=React.createClass();
+
