@@ -65,6 +65,13 @@ clinic() #调用函数
 from module import function # 导入方法，moudle,function
 """
 
+"""
+for item in prices:
+    print item
+    print "price: %s" % prices[item]
+    print "stock: %s" % stock[item] #遍历数组，%s被%后面的数值替代
+"""
+
 
 
 
