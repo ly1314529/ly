@@ -35,7 +35,78 @@ ReactDOM.render(
   img,  //执行的行为
   document.getElementById('app')
 );
-
+```
 * 组件
-var newclass=React.createClass();
+   * 一个视图的创建
+```
+var Button=React.createClass({  //创建组件
+render: function () {  //render可以把他看成一个类，这里面可以增加很多个类，比如增加一个name:'ly';
+return something; //函数返回的东西
+}
+});
+Reactdom.render(
+<Button />,  //调用的就是button这个创建的组件
+document.getElementById('id'); //全文的id监听
+); //现在是调用这个类，render
+```
+   * 在两个文件下共同完成一个视图
+```
+var React = require('react');
+var ReactDOM = require('react-dom'); //导入文件
+var NavBar=require('./NavBar');  //导入NavBar这个文件
+
+var ProfilePage = React.createClass({  //创建一个叫ProfilePage这个组件
+  render: function () {  //函数
+    return (
+      <div>
+       <NavBar /> //从一个文件调到这里来的navbar
+        <h1>All About Me!</h1>
+        <p>I like movies and blah blah blah blah blah</p>
+        <img src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-monkeyselfie.jpg" />
+      </div>
+    );   //返回的是html的内容
+  }
+});
+ReactDOM.render(  //打开接口
+<ProfilePage />,  //调用这个组件
+  document.getElementById('app')
+);
+
+
+var React = require('react'); //导入重要文件
+
+var NavBar = React.createClass({  //创建navbar这个组件
+  render: function () {  //组件将要展示的内容
+    var pages = ['home', 'blog', 'pics', 'bio', 'art', 'shop', 'about', 'contact'];
+    var navLinks = pages.map(function(page){  //map是遍历整个pages的内容
+      return (
+        <a href={'/' + page}>
+          {page}
+        </a>
+      );
+    });
+
+    return <nav>{navLinks}</nav>;{}里面的是执行这个语句
+  }
+});
+module.exports=NavBar; //代表如果require了,你将从navbar里得到什么，相当于打开接口，和node一样，需要require时候，都要先打开接口
+```
+   * 向组件传递信息
+    this.props //指的当前属性
+```
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+var Greeting = React.createClass({
+  render: function () {
+    return <h1>Hi there, {this.props.firstName}!</h1>; //this.props.属性
+  }
+});
+
+// ReactDOM.render goes here:
+ReactDOM.render(
+  <Greeting firstName='ly' />, //返回的属性
+  document.getElementById('app')
+);
+
 
