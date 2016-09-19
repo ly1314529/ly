@@ -92,7 +92,9 @@ var NavBar = React.createClass({  //创建navbar这个组件
 module.exports=NavBar; //代表如果require了,你将从navbar里得到什么，相当于打开接口，和node一样，需要require时候，都要先打开接口
 ```
    * 向组件传递信息
-    this.props //指的当前属性
+    * this.props //指的当前属性,传递的也是属性
+    * 而函数需要用this.talk传递，如talk :function () {},(在同一个文件下的函数用this.talk，不同文件下用this.props.talk)
+
 ```
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -108,5 +110,44 @@ ReactDOM.render(
   <Greeting firstName='ly' />, //返回的属性
   document.getElementById('app')
 );
+```
+   * this.props.children，将会返回jsx里的所有标签
+   * this.state.属性 
+```
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+var green = '#39D1B4';
+var yellow = '#FFD712';
+
+var Toggle = React.createClass({
+  getInitialState: function () {
+    return { color: green }; color是内置的属性，所以用state
+  },
+  
+  changeColor: function () {
+    var color = this.state.color == green ? yellow : green;
+    this.setState({ color: color });  //立即调用这个设置，这样将会陷入x无限loop
+  },
+  
+  render: function () {
+    return (
+      <div style={{background: this.state.color}}> 
+        <h1>
+          Change my color
+        </h1>
+        <button onClick={this.changeColor}>
+          Change color
+        </button>
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('app')
+);
+```
 
 
