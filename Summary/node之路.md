@@ -104,6 +104,20 @@ $('p').hide('slow',function () {
         * 创建web服务器，createServer
         * 最后一个end()
         * 然后监听服务器的端口号
+  * 关于url,很多时候要求一个网页出现多个页面，往往会供不应求，这时我们可以采用路由（route）的方式，来获取不同的页面
+    * 直接上代码
+    ```javascript
+    var http=require('http');
+    var url =require('url');  //url
+    http.createServer(function (res,req) {
+     var pathname=url.parse(req.url).parthname;
+    if(pathname ==='/') {  //分配不痛的path路经
+     res.writeHead(200,{'Contene-Type':'text/plain'}); //http响应头
+     res.end('hello'); //将要展示的内容
+     }
+     else if (){} //不同 的path路径
+     }).listen(3000);  //listen to the port with 3000
+     console.log('the port is 3000');
 
 * 同步和异步，阻塞和非阻塞
   *  同步和阻塞概念差不多，指的是前一个函数没有执行完成，后面的函数就无法执行，在后面等待，一个一个的执行
