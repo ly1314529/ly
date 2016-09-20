@@ -85,9 +85,29 @@ console.log('app port is 3000'); //在监听成功后，会输出的东西
 说到回调函数，第一个想到的就是callback，指的是函数1作为参数在函数2中被调用，在函数2执行完之后，才去执行函数1，最近看了一本关于node.js入门的书（由于本人太菜，只能看入门），是一位伟大的计算机家所著，于是想起了前1个月的jquery,想想还是漫游道理的
 
 jquery的样式如下：
-```
+```javascript
 $('p').hide('slow',function () {
  alert('hide');  //这个function就是回调函数
 });
 ```
-    
+
+* node闲话
+ * 看了node入门那么久了，我琢磨了一些小经验
+   * 一来就要找一个包，依赖他，或者找个框架也可以，大致形式是 var fs=require('fs');
+   * 调用这个方法，在fs这个官网上查找这个包都有什么方法，什么get啊，on 啊，都用起来
+   * 如果不出意外，可以增加一个err，如果请求错误，返回响应的错误回应，可以用console.log
+* 同步和异步，阻塞和非阻塞
+  *  同步和阻塞概念差不多，指的是前一个函数没有执行完成，后面的函数就无法执行，在后面等待，一个一个的执行
+  *  异步和非阻塞也是同一个意思，指的是在第一个函数没有执行前，后面的函数也可以执行，不必等待，这也是node的一个亮点
+  *  代码理解
+  
+  ```javascript
+  var fs=require('fs');  //读取系统文件
+  var data=fs.readFileSync('ly.txt');  //读取完毕之后才能打印
+  console.log('sync'+data.toString());
+  
+  fs.readFile('ly.txt',function (err,data) {
+  if (err) throw err;
+  console.log('async'+data.toString());
+  })
+   
