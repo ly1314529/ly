@@ -43,16 +43,17 @@ vi app.js
 ```
 ```javascript
 var mongoose=require('mongoose'); //调用包
-mongoose.connect('mongdb://localhost/test'); //连接一个叫test的表，不用担心没有，因为mongodb会自己创建一个test的表
-var People=mongoose.model('People' {name:String,
+mongoose.connect('mongodb://localhost/test'); //连接一个叫test的表，不用担心没有，因为mongodb会自己创建一个test的表
+var People=mongoose.model('People', {
+name:String,
 job:String,
 age:Number
 });  //创建一个表 的各项标签，包括姓名，工作，年龄
 var one=new People({name:"ly",age:18,job:"tester"});  //创建一个实例，并且加入相应的数据
 one.save(function (err) {
- if (err) {
+ if (err) 
  console.log('err');   //将这个数据储存在表中
- }
+ 
  });
  ```
  * 运行
