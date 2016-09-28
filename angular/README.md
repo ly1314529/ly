@@ -1,4 +1,4 @@
-angularjs是一个 JavaScript 框架，它可通过 <script> 标签添加到 HTML 页面
+angularjs是一个 JavaScript 框架，它可通过 js 标签添加到 HTML 页面
 
 ----
 
