@@ -77,3 +77,13 @@
 ### 关于linux的映射问题
 就是说使ubuntu下的文件内容在windows上也可以看见，需要在ubuntu的文件下的vgrantfile改了，#config.vm.synced_folder "d:/ubuntu14.04/data", "/vagrant_data"注释掉#(是在开启ubuntu下的时候再注释掉)
 
+### 关于vagrant up启动问题
+
+* When running vagrant up it is stuck verifying Hyper-V provider...
+  
+  * （Add C:\Program Files\Oracle\VirtualBox to your PATH environment variable in Windows.）
+
+* 还有一个就是提示vagrant init失败的问题，可以考虑重新换一个路径
+
+
+
