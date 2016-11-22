@@ -1,9 +1,9 @@
 # cucumber自动化测试
 ## 安装vagrant搭建一个Linux开发环境：
 
-  * VirtualBox安装,安装下载地址https://www.virtualbox.org/wiki/Downloads；
-  * Vagrant安装下载地址https://www.vagrantup.com/downloads.html
-  * 安装git,官网https://git-scm.com/download/
+  * VirtualBox安装,[下载地址](https://www.virtualbox.org/wiki/Downloads)
+  * Vagrant安装[下载地址](https://www.vagrantup.com/downloads.html)
+  * 安装git,[官网](https://git-scm.com/download/)
   
 
 ## 安装好git后打开git bash,环境下输入命令
