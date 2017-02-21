@@ -84,6 +84,10 @@
   * （Add C:\Program Files\Oracle\VirtualBox to your PATH environment variable in Windows.）
 
 * 还有一个就是提示vagrant init失败的问题，可以考虑重新换一个路径
+* 有一段报错
 
-
-
+```
+The primary issue for this error is that the provider you're using
+is not properly configured. This is very rarely a Vagrant issue.
+```
+   * 这是电脑系统的问题，需要找到c://windows/sysytem32/uxtheme.dll文件进行替换，上网下载即可，先要看好电脑操作位数
