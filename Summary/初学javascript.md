@@ -28,10 +28,8 @@ Undefined(未定义)、Null、Boolean(布尔)、Number（数值）、String（�
    
    然后了解一下js编译器的运行机制，原来js是先声明后赋值的，在进入函数的时候就相当于var foo; if(!foo);
    所以最后会执行这个步骤，打印出2
-   
-   * 最近看到几段对函数声明和变量解析很透彻的代码
-   
-   ```javascript
+   * 最近看到几段对函数声明和变量解析很透彻的代码
+  ```javascript
     function foo() { 
      function bar() { 
       return 3; 
@@ -146,9 +144,8 @@ bar[0] = 9;
 console.log(foo[0], bar[0]); // => 9, 9,foo也发生了变化
 ```
    * 属性检测
-         * 对象属性的检测
-    
-    ```javascript
+    * 对象属性的检测
+ ```javascript
 function hasProperty(aObj,aProperty) {
 return aObj.hasOwnProperty(aProperty)
 }
@@ -156,10 +153,8 @@ var obj={age:10};
 hasProperty(obj,'age');//用in也可以检测
 ```
 
-    
    * 对象自身属性的检测
-    
-    ```javascript
+  ```javascript
     function hasProperty(aObj,aProperty) {
     return aObj.hasOwnProperty(aProperty); }
     function obj() {this.a=1};
@@ -173,6 +168,7 @@ hasProperty(obj,'age');//用in也可以检测
  
   
 #####  _proto_ JavaScript在创建对象的时候，都会有一个proto的内置属性，用于指向创建它的函数对象的prototype。原型对象也有proto属性。因此在不断的指向中，形成了原型链。o._proto_->Object._proto_->null
+   
    *  constructor 原型对象prototype上都有个预定义的constructor属性，用来引用它的函数对象。这是一种循环引用。
    * ![原型链](https://segmentfault.com/img/bVwFw5)
    
@@ -466,7 +462,8 @@ return function () {//这里就是一个闭包，他执行的是闭包的东西�
  ```
 综上所诉，闭包的运行机制就简单了，在一个环境下同时出现两个变量，为了避免冲突，可以使用闭包，这样就只能访问闭包里的东西，其他就不能访问
   
-#####ASCII码值的转换
+##### ASCII码值的转换
+   
    * "A".charCodeAt(0)//A->65;(0)代表的是一个顺序，0，1，2 (类似数组中的每个值的顺序，是从0开始的)
    * String.fromCharCode(97);//97->a;
    * 发现一个问题，函数是否具有length属性，然后写了一段代码
