@@ -23,10 +23,13 @@ Undefined(未定义)、Null、Boolean(布尔)、Number（数值）、String（�
    ```
    这个时候思考！foo什么意思，foo代表是赋了值的，而！foo代表的是没有赋值的（foo=0也算没有赋值），只有在！foo没有赋值才会执行,
    foo之前没有出现过函数中，怎么没有报未定义的错?
+   
    然后了解一下js编译器的运行机制，原来js是先声明后赋值的，在进入函数的时候就相当于var foo; if(!foo);
    所以最后会执行这个步骤，打印出2
+   
     * 最近看到几段对函数声明和变量解析很透彻的代码
-    ```
+   
+   ```
     function foo() { 
      function bar() { 
       return 3; 
@@ -38,6 +41,7 @@ Undefined(未定义)、Null、Boolean(布尔)、Number（数值）、String（�
     } 
     foo();//8,函数声明的时候第二个function是被提到return bar()前面了，临近原则，返回的是8
 ```
+
 ```
   function foo() { 
    var bar=function() { 
@@ -49,7 +53,9 @@ Undefined(未定义)、Null、Boolean(布尔)、Number（数值）、String（�
     }; 
    } 
    foo();//3,函数表达式在声明的时候，首先声明的是变量，var bar =undefined;var bar=undefined; bar =function() {return 3;}
-   ```
+  
+  ```
+
 ```
 foo();
 function foo() {
@@ -62,6 +68,7 @@ return 8;
 }; 
  } //3,第3个和第二个函数是一样的，只是会先解析函数foo,在返回值
 ```
+
 ```
 function foo() { 
 return bar(); 
