@@ -69,8 +69,9 @@
 ### 运行第三个终端
 
     $ xvfb-run --server-args="-screen 0, 1366x768x24" selenium-standalone start，在以后使用的时候可以输入：selenium-standalone start
+    
   第一个终端是最后运行的
-  
+   //报错没有找到谷歌驱动，注意看清楚后缀名文件 
 ##然后等待终端跑起来吧！
 
 
